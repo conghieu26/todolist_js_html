@@ -16,11 +16,15 @@ class ManageTodo {
   }
 
   removeTodoById(id) {
-    var newArray = this.value.map((item) => {
+    let newArray = this.value.filter((item) => {
       return item.id != id;
     });
-    return (this.value = newArray);
+    // console.log(newArray);
+
+    this.__arr = newArray;
+
   }
+
   render() {
     return (document.getElementById("todo").innerHTML = this.value.map(
       (item) => {
@@ -28,7 +32,7 @@ class ManageTodo {
         <li>
         <span>${item.name}</span>
         <div class="buttons">
-            <button class="remove" data-index="0" data-status="todo" onclick="deleteToDo(event)">
+            <button class="remove" data-index="0" data-status="todo" onclick="deleteToDo(${item.id})">
                 <i class="fa fa-trash-alt"></i>
             </button>
             <button class="complete" data-index="0" data-status="todo" onclick="completeToDo(event)">
