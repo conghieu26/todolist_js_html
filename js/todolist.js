@@ -33,7 +33,12 @@ class ManageTodo {
   }
 
   render() {
-    return (document.getElementById("todo").innerHTML = this.value.map(
+    this.renderDone();
+    this.renderInProgress();
+  }
+
+  content(list) {
+    return (list.map(
       (item) => {
         return `
         <li>
@@ -52,5 +57,30 @@ class ManageTodo {
       }).join(" ")
     );
   }
+  findAllStatusDone() {
+    return this.value.filter(todo => {
+      return todo.status == STATUS.DONE
+    })
+  }
+
+  findAllStatusInProgress() {
+    return this.value.filter(todo => {
+      return todo.status == STATUS.IN_PROGRESS;
+    })
+  }
+
+  renderDone() {
+   let todolist = this.findAllStatusDone();
+   console.log(todolist)
+    document.getElementById("completed").innerHTML = this.content(todolist);
+  }
+
+  renderInProgress() {
+    let todolist = this.findAllStatusInProgress();
+   console.log(todolist)
+    document.getElementById("todo").innerHTML = this.content(todolist);
+
+  }
+
 }
 
