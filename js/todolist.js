@@ -12,7 +12,7 @@ class ManageTodo {
   }
 
   addTodo(todo) {
-    this.value.unshift(todo);
+    return this.__arr.unshift(todo);
   }
 
   removeTodoById(id) {
@@ -58,26 +58,26 @@ class ManageTodo {
     );
   }
   findAllStatusDone() {
-    return this.value.filter(todo => {
+    return this.__arr.filter(todo => {
       return todo.status == STATUS.DONE
     })
   }
 
   findAllStatusInProgress() {
-    return this.value.filter(todo => {
+    return this.__arr.filter(todo => {
       return todo.status == STATUS.IN_PROGRESS;
     })
   }
 
   renderDone() {
    let todolist = this.findAllStatusDone();
-   console.log(todolist)
-    document.getElementById("completed").innerHTML = this.content(todolist);
+  //  console.log(todolist)
+   document.getElementById("completed").innerHTML = this.content(todolist);
   }
 
   renderInProgress() {
     let todolist = this.findAllStatusInProgress();
-   console.log(todolist)
+    //  console.log(todolist)
     document.getElementById("todo").innerHTML = this.content(todolist);
 
   }
