@@ -5,6 +5,11 @@ function deleteToDo(id) {
   manageTodo.render();
 }
 
+function toggleTodoStatus(id) {
+  manageTodo.toggleTodo(id);
+  manageTodo.render()
+}
+
 function handleAddTodo() { 
   let valueEle = document.getElementById("newTask");
   let getValue = valueEle.value;
@@ -14,7 +19,6 @@ function handleAddTodo() {
   manageTodo.addTodo(todo);
 
   manageTodo.render();
-  console.log(manageTodo);
 }
 
 

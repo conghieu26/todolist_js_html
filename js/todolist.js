@@ -25,6 +25,13 @@ class ManageTodo {
 
   }
 
+  toggleTodo(id) {
+    var value = this.value.find(item => { 
+      return item.id == id;
+    })
+    value.toggleTodoStatus();
+  }
+
   render() {
     return (document.getElementById("todo").innerHTML = this.value.map(
       (item) => {
@@ -35,7 +42,7 @@ class ManageTodo {
             <button class="remove" data-index="0" data-status="todo" onclick="deleteToDo(${item.id})">
                 <i class="fa fa-trash-alt"></i>
             </button>
-            <button class="complete" data-index="0" data-status="todo" onclick="completeToDo(event)">
+            <button class="complete" data-index="0" data-status="todo" onclick="toggleTodoStatus(${item.id})">
                 <i class="far fa-check-circle"></i>
                 <i class="fas fa-check-circle"></i>
             </button>

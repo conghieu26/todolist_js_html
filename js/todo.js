@@ -21,7 +21,7 @@ class Todo {
   }
 
   toggleTodoStatus() {
-    return this.status = this.isInProgress ? STATUS.DONE : STATUS.IN_PROGRESS;
+    return this.status = this.isDone() ? STATUS.IN_PROGRESS : STATUS.DONE ;
   }
 
   isDone() { 
