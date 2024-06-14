@@ -41,3 +41,25 @@ window.onload = () => {
     manageTodo.update(arr);
     manageTodo.render();
 }
+let buttonFilter = document.querySelector(".filter-btn")
+buttonFilter.onclick = () => {
+  buttonFilter.classList.toggle("open");
+}
+
+let sortASC = () => {
+  manageTodo.sortASC();
+  manageTodo.render();
+}
+
+let sortDES = () => {
+  manageTodo.sortDES();
+  manageTodo.render();
+}
+
+
+document.querySelector("#newTask").addEventListener("keypress", (e) => {
+  if(e.key === "Enter") {
+    handleAddTodo();
+  }
+})
+

@@ -82,5 +82,20 @@ class ManageTodo {
 
   }
 
+  sortASC() {
+    let newArray = [...this.__arr];
+
+    newArray.sort((a,b) => {
+      return a.name.localeCompare(b.name);
+    })
+
+    this.__arr = newArray;
+  }
+  
+  sortDES() {
+    this.sortASC();
+    this.__arr.reverse();
+  }
+
 }
 
